@@ -1,5 +1,7 @@
 import Conversation from "../models/conversation.model.js";
 import Message from "../models/message.model.js"
+
+
 export  const sendMessage= async (req,res) =>{
   try{
      const  { message }=req.body;
@@ -56,7 +58,7 @@ export const getMessages = async(req,res)=>{
          }).populate("messages"); //not refernece but actual messages ,,,,instead of sending the id it will send the message of particular id
 
 
-   if(!conversation) return res.status(200).json(conversation.messages);
+   if(!conversation) return res.status(200).json([]);
 
    const messages=conversation.messages;
 

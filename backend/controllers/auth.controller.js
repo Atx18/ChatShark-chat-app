@@ -8,7 +8,7 @@ export const signup = async (req, res) => {
   try {
     const { fullName, username, password, confirmPassword, gender } = req.body;
     if (password != confirmPassword) {
-      return res.status(400).json({ error: "Passord don't match" });
+      return res.status(400).json({ error: "Password don't match" });
     }
 
     const user =await User.findOne({username});
@@ -19,7 +19,7 @@ export const signup = async (req, res) => {
    const salt =await bcrypt.genSalt(10);
    const hashedPassword=await bcrypt.hash(password,salt);
    //avatar
-   const  boyProfilePic=`https://i.pravatar.cc/200`;
+   const  boyProfilePic='https://i.pravatar.cc/200';
    const girlProfilePic='https://i.pravatar.cc/200';
 
    const newUser=new User({

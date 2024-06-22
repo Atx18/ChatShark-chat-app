@@ -9,12 +9,14 @@ import messageRoutes from "./routes/message.routes.js";
 import userRoutes from "./routes/user.routes.js";
 
 import connectToMongoDb from "./db/connectToMongoDB.js";
-
-
-const app=express();
-const PORT= process.env.port || 5000;
+import { app, server } from "./socket/socket.js";
 
 dotenv.config();
+
+
+const PORT= process.env.port || 5000;
+
+
 
 
 app.use(express.json());  //to parse the incoming requets with JSON payloads
@@ -28,7 +30,7 @@ app.use("/api/users",userRoutes);
 
 
 
- app.listen(PORT,()=> {
+ server.listen(PORT,()=> {
     connectToMongoDb();
     console.log(`server is running on port ${PORT}`);
 });

@@ -45,7 +45,7 @@ export const signup = async (req, res) => {
  }
   } catch (error) {
      console.log("error in setup controller ");
-     res.status(500).json({error: "Internal server eroor"});
+     res.status(500).json({error: "Internal server error"});
   }
 };
 
@@ -75,7 +75,7 @@ export const login = async (req, res) => {
     }
     catch(error){
         console.log("error in login controller ");
-        res.status(500).json({error: "Internal server eroor"});
+        res.status(500).json({error: "Internal server error"});
     }
   
 };
